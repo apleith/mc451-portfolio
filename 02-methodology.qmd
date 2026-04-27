@@ -1,0 +1,41 @@
+---
+title: "Methodology"
+---
+
+::: {.section-badge}
+Phase II–III · The Architect & Builder
+:::
+
+This study employed systematic quantitative content analysis to address the two research questions introduced in the previous section. Content analysis is appropriate here because it provides a replicable, transparent method for identifying patterns in media content at a scale that is not feasible through close reading alone.
+
+## Data Source
+
+Because no single comprehensive database catalogues all digital games (in the way IMDB.com catalogues films), data were drawn from the six largest publicly accessible video-game databases as ranked by monthly unique visitors and total searchable game count: IGN.com, GameFAQs.com, GameSpot.com, GiantBomb.com, GamerDNA.com, and MobyGames.com. Database rankings were verified using the Compete (2012) web traffic measurement service. These six sources were used in combination because no single source returned an exhaustive list of evolution-themed titles, and each contributed distinct entries to the final sample.
+
+A second, supplemental data collection phase was conducted to capture games that the commercial databases routinely exclude — specifically academically developed games made for teaching or research. This second phase used Google web searches and outreach to other researchers and educators who work with so-called "serious games."
+
+## Sample and Sampling Procedure
+
+The keyword **"evolution"** was used to search each of the six databases. Related search terms (e.g., *evolve*, *natural selection*) were tested but produced no additional unique data, irrelevant data, or redundant data. Initial keyword counts varied widely across databases, from 52 results (GiantBomb) to 1,500 results (GameSpot, prior to refinement). GameSpot's initial result set was uniquely inflated by the use of the term *evolution* in unrelated game-sequel titles (e.g., *Trials Evolution*, *Pac-Man Evolution*, sports-game iterations). A secondary search using exclusionary terms (Trials, Pac-Man, soccer, sports, skateboarding, hackers, revolution, Tron) reduced GameSpot's results to 269 games.
+
+From the six resultant datasets, every game was examined for substantive relationship to evolution as a biological process. Games whose only connection to "evolution" was a sequel-naming convention or a brand pun were excluded. This screening produced a final Study 1 sample of **14 games** spanning the years 1982 to 2012 across ten platforms.
+
+The supplemental phase produced an additional **8 games** identified through Google searches (`evolution + game`, `evolve + game`, `natural selection + game`) and personal-network inquiries to colleagues working in serious-games research and STEM education.
+
+The combined final sample consisted of **N = 22 games**, each constituting one unit of analysis: a single distinct evolution-themed digital game title.
+
+## Variables and Measures
+
+**Game Origin** is the supplemental administrative variable in this analysis. It distinguishes between **Commercial** games (those discoverable through the major game databases used in Study 1, n = 14) and **Academic** games (those identified only through Google searches or personal networks in Study 2, n = 8). Origin captures the practical difference between games that a teacher or learner might find through ordinary commercial channels and those that require connections to research networks to discover.
+
+**Phenotypic Variation** refers to the appearance of distinct organisms with varying digital physiologies or traits. Per Lewontin's [-@Lewontin1970] first principle of natural selection, both intraspecies variation (different individuals within the same species) and interspecies variation (different species) qualify. A game was coded **Yes** when characters within the game world exhibited observable trait differences (e.g., body shape, coloration, behavior) that the game's mechanics treated as meaningful, and **No** when the game presented uniform organisms with no observable trait differences.
+
+**Differential Fitness** refers to the capacity for character or species survival to be contingent on traits, per Lewontin's second principle. A game was coded **Yes** when otherwise-similar organisms experienced different rates of survival or success that depended on their traits, and **No** when player intervention (manual control of which organisms survive or breed) overrode trait-based outcomes. The most common reason for a "No" coding was the player's ability to directly manipulate any specific organism's success regardless of its fitness.
+
+**Fitness Heritability** refers to the presence of organisms passing traits to offspring within the game, per Lewontin's third principle. A game was coded **Yes** when reproduction occurred within the game's mechanics *and* offspring exhibited observable similarity to their parents (visual, behavioral, or both), and **No** when reproduction was either absent or treated as a reset (offspring with no inherited resemblance to parents).
+
+**ENS Completeness** is a derived variable computed from the three principle-presence codings. Games were classified as **None** (zero principles present), **Partial** (one or two principles present), or **Complete** (all three principles present). This three-level variable serves as the primary categorical outcome (`var1`) for the analyses in the next chapter.
+
+## Coding Procedure and Codebook Refinement
+
+Coding was conducted by committee. One author collected and reviewed all available material for each candidate game — including in-game playthroughs where possible, and developer descriptions, gameplay videos, screenshots, and reviews where direct play was not possible (some titles required outdated or region-locked hardware). The full author team then coded the games together against the three principles until unanimous classifications were reached. This procedure provided a single, jointly informed judgment for each game; the qualitative and exploratory nature of the work, combined with the small sample size, did not require a separate inter-coder reliability assessment with external validators. The committee approach was used in preference to independent coding because the principal coding ambiguities involved interpretation of game mechanics across very different game eras and platforms — an interpretation problem better resolved by deliberation than by reliability statistics.

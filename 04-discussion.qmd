@@ -1,0 +1,49 @@
+---
+title: "Discussion & Conclusion"
+---
+
+::: {.section-badge}
+Phase V · The Publisher
+:::
+
+This study examined how digital games portray the theory of evolution through natural selection (ENS). Using quantitative content analysis of N = 22 evolution-themed games — 14 commercially distributed and 8 academically developed — the study addressed two research questions concerning the completeness of ENS representation and whether that completeness differed by game origin. The findings are discussed below in relation to each research question, the broader theoretical framework, and the methodological caveats raised in the previous chapter.
+
+## Addressing the Research Questions
+
+**RQ1** asked what proportion of evolution-themed digital games contain none, some, or all three principles of ENS. The frequency distribution presented in Table 2 and Figure 1 revealed that the dominant category is Partial (15 of 22 games, 68.2%), with only 5 games (22.7%) presenting all three Lewontin principles and 2 games presenting none. Table 3 disaggregates the result by individual principle: phenotypic variation appears in 90.9% of games, while differential fitness and fitness heritability appear in only 27.3% and 36.4% respectively.
+
+This pattern has a clear interpretation in light of the Mapping Principle [@Williams2010]: the most visually obvious principle of ENS — different organisms with different traits — is also the easiest to depict in a digital game, and games depict it readily. The two principles that require the *system* of natural selection to actually function as a closed loop — fitness consequences and inheritance — are far rarer. In effect, most evolution-themed games show what evolution *looks like* without simulating how it *works*. The Mapping Principle predicts that this asymmetry will produce learners who can recognize evolutionary outcomes but not reason about evolutionary mechanism.
+
+**RQ2** asked whether ENS completeness differed between commercial and academic games. The Chi-Square test of independence was not statistically significant. As Table 4 shows, both commercial and academic games produced Complete-rated titles at roughly comparable rates (3 of 14 commercial, 2 of 8 academic). The two None-rated games are both academic, but they share a specific subtype: information-presentation quiz games (*Angry Aliens: Evolution*, *Life Preservers*) that teach evolution as content rather than simulating it as a process.
+
+The most important caveat for RQ2 is statistical: with N = 22 and three of six expected cell counts below the conventional Chi-Square threshold of 5, the inferential test is fragile. The null result reported here should not be read as evidence that commercial and academic games are equivalent — only that the available data are insufficient to support a confident conclusion either way. The original published study used qualitative thematic analysis precisely because the population of evolution-themed games is small enough that descriptive and qualitative methods are more honest than inferential ones.
+
+## Theoretical Implications
+
+Taken together, these findings complicate a common assumption about the educational potential of "fun" games. The implicit logic of much edu-tainment design holds that if a game *invokes* a topic — sets it as backdrop, names it, lets the player play through it — the game has done its educational work. The present results push back: invoking evolution is widespread in commercial games, but actually *simulating* the mechanism of natural selection is rare, and rare in a particular way. Player agency, the very feature that makes games engaging, is in tension with natural selection's defining property of operating *without* directorial intervention. A game in which the player saves their favorite organism from a fitness consequence is not, mechanically, a game about natural selection.
+
+This finding generalizes beyond evolution. Any educational target whose underlying mechanism requires automaticity — natural selection, market clearing, mass action in chemistry, equilibrium-reaching processes broadly — is in similar tension with the directorial premise of most digital games. The Mapping Principle does not say the tension is fatal; sandbox-style and interactive-storytelling designs (*SimEarth*, *SimLife*, *Selection Game*) exemplify mechanics that allow ENS to play out without player override. But these designs are uncommon, and the dominant commercial game-design idiom of player-as-protagonist works against them.
+
+## Limitations
+
+Several limitations of the present study should be noted. First, the sample size (N = 22) is small. With three Chi-Square cells below the expected-count threshold of 5, the inferential test reported in RQ2 should not be taken as the final word on whether commercial and academic games differ in ENS completeness. Replication with a substantially larger sample, or use of Fisher's Exact Test as the primary inferential tool, would strengthen any conclusion.
+
+Second, no single game database is comprehensive. Flash games, browser games, mobile-only titles, and games for outdated or region-locked hardware are systematically under-represented across the six databases sampled. The Study 2 supplemental phase partly compensated for this — Google searches and personal-network outreach surfaced games the databases missed — but the supplemental phase was not exhaustive either, and additional ENS-relevant games likely exist outside the present sample.
+
+Third, the coding-by-committee approach used in the original study, while appropriate for a small qualitative analysis, does not produce the inter-coder reliability statistic that a fully quantitative study would normally report. A future replication with two or more independent coders, computing Cohen's κ or Krippendorff's α, would address this.
+
+Fourth, the study coded only for the *presence* of each Lewontin principle, not for the *fidelity* of its depiction. A game that depicts fitness heritability via cartoonish parent-child resemblance is coded the same as one that simulates Mendelian genetics. A more granular fidelity scale would reveal additional structure within the Partial category.
+
+These limitations notwithstanding, the study's systematic sampling procedure across six major databases, its principle-by-principle coding scheme grounded in a foundational biology citation [@Lewontin1970], and its honest engagement with the small-sample inferential constraints together represent meaningful methodological strengths that support the credibility of the descriptive findings.
+
+## Conclusion
+
+The central finding of this study is that evolution-themed digital games most often invoke evolution without simulating natural selection: phenotypic variation is everywhere, but differential fitness and fitness heritability are rare, and the combined presence of all three Lewontin principles is rare still. This matters because educators and parents reach for "evolution games" assuming that play with the topic produces learning about the mechanism — and the mapping research suggests that without all three principles in the mechanics, that assumption fails. Future research could extend this work by directly testing the learning outcomes of mechanically Complete versus Partial evolution games on student understanding of natural selection, controlling for game polish and entertainment value, and by surveying a substantially larger and more recent sample of mobile and browser-based evolution-themed titles.
+
+---
+
+::: {.callout-note}
+## A Note on This Example
+
+This portfolio is an instructor-built example for MC 451: Research Methods in Mass Media at Southern Illinois University Edwardsville (Spring 2026). The dataset is the real Table 2 from Leith, Ratan, and Wohn (2016); the structure has been adapted to match the MC 451 final-portfolio template, which uses Chi-Square as its inferential test in place of the original paper's qualitative-thematic analysis. The data, codebook, and full analysis files are available in the GitHub repository linked at the top of this page.
+:::

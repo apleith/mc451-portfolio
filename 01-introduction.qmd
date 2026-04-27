@@ -1,0 +1,39 @@
+---
+title: "Introduction"
+---
+
+::: {.section-badge}
+Phase I · The Journalist
+:::
+
+Science, technology, engineering, and mathematics (STEM) education increasingly relies on informal learning supplements — videos, simulations, and digital games — to reach students with concepts that are too abstract, too slow-moving, or too dangerous to demonstrate directly in a classroom. Among these supplements, digital games have grown in popularity as inquiry-based educational tools [@Ritterfeld2009; @Lieberman2012]. Evolution through natural selection (ENS) is one such concept: foundational to the biological sciences [@Dobzhansky1973], persistently misunderstood by the public, and apparently well suited to the slow, accumulating, generations-long timescale that a digital simulation can compress into a few minutes of play. Yet whether games that *describe* themselves as evolution-related actually *teach* the science of evolution is an open empirical question — and one with real consequences for any teacher who reaches for a game in good faith.
+
+## Background and Significance
+
+Prior research on educational digital games has established that games can convey complex scientific content through inquiry-based learning [@KennedyClark2011; @Reimann2009]. Inquiry-based learning, as articulated by @Schwab1960 and elaborated by @Rezba1999, ranges from confirmation inquiry (verifying a known result) through structured, guided, and open inquiry (formulating and testing original questions). Digital games are uniquely positioned to support these modes because they can present dynamic systems whose internal logic the player must discover through play.
+
+However, the educational value of any specific game depends on whether the game's mechanics actually map onto the real-world phenomenon it claims to teach. This conditional has been formalized as the **Mapping Principle** [@Williams2010]: digital experiences translate to offline behavior, knowledge, and reasoning to the extent that the digital representation closely parallels its physical counterpart. A game like *Angry Birds* may give players a rough sense of projectile motion but does not formally teach physics. The question for evolution games is analogous: which games' mechanics map onto the actual mechanism of natural selection, and which only borrow the vocabulary?
+
+Despite the steady production of "evolution-themed" titles for the consumer market, the current state of evolution games is largely uncatalogued. Some games may even contribute to misconceptions [@Bean2010], teaching players that evolution is a deliberate, agentive process driven by player choice rather than the automatic consequence of differential reproductive success. This study addresses that gap by systematically coding the population of available evolution-themed games against the established scientific definition of natural selection.
+
+## Theoretical Framework
+
+This study is grounded in the three-principle definition of evolution through natural selection articulated by @Lewontin1970, building on @Darwin1859. ENS occurs when three conditions are simultaneously met:
+
+1. **Phenotypic variation** — organisms within a population possess different traits.
+2. **Differential fitness** — those trait variations produce different rates of survival and reproduction.
+3. **Fitness heritability** — the advantageous traits of survivors are passed to offspring.
+
+When all three conditions hold, natural selection follows automatically; the system requires no external designer or director. Conversely, if any of the three is missing — for instance, if all variations have equal fitness, or if traits do not transmit to offspring — the system does not produce evolutionary change.
+
+The Mapping Principle [@Williams2010] supplies the second theoretical thread. The principle predicts that a digital game can teach ENS only if its mechanics simulate all three Lewontin conditions. A game in which players manually decide which organisms reproduce, or in which all organisms survive equally regardless of trait, does not map onto natural selection — it maps onto artificial selection or onto something else entirely. Together, Lewontin's three principles supply the *what* of accurate ENS representation, and the Mapping Principle supplies the *why* of why mapping fidelity matters for learning.
+
+## Research Questions
+
+Based on the foregoing, this study addresses the following research questions:
+
+> **RQ1:** What proportion of evolution-themed digital games contain none, some, or all three principles of evolution through natural selection?
+
+> **RQ2:** Does the completeness of ENS representation differ between commercially distributed and academically developed games?
+
+Together, these questions produce a replicable, principle-by-principle account of which evolution-themed games meet the scientific criteria of natural selection and which do not — moving beyond intuitive impressions toward a defensible audit of the available teaching materials.

@@ -1,0 +1,273 @@
+---
+title: "Results"
+---
+
+::: {.section-badge}
+Phase IV · The Analyst
+:::
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+coding_data <- readRDS("coding_data_clean.RDS")
+```
+
+This section presents the findings of the content analysis (N = `r nrow(coding_data)` games). Results are organized to address each research question in turn. Descriptive statistics are presented first, followed by inferential analysis.
+
+---
+
+## Descriptive Statistics
+
+### Overview of the Sample
+
+```{r}
+#| label: tbl-sample-overview
+#| tbl-cap: "Table 1. Sample composition by game origin (commercial vs. academic)."
+
+coding_data |>
+  count(game_origin, name = "n") |>
+  mutate(
+    Percent = round(n / sum(n) * 100, 1),
+    Percent = paste0(Percent, "%")
+  ) |>
+  rename(
+    "Game Origin" = game_origin,
+    "N" = n,
+    "% of Sample" = Percent
+  ) |>
+  kable(align = c("l", "c", "c")) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options = c("striped", "hold_position"),
+    full_width = FALSE,
+    font_size = 13
+  ) |>
+  row_spec(0, bold = TRUE, background = "#b71c1c", color = "white")
+```
+
+The sample comprises 22 evolution-themed digital games. Just over six in ten (63.6%) were commercially distributed games discoverable through standard video-game databases; the remaining 36.4% were academically developed games identified only through targeted web searches and personal-network outreach. This imbalance is itself a finding: the commercial-channel discoverability of academic evolution games is substantially weaker than that of mainstream commercial titles.
+
+---
+
+### Distribution of Primary Variable: ENS Completeness
+
+```{r}
+#| label: tbl-var1-freq
+#| tbl-cap: "Table 2. Frequency distribution of ENS Completeness across all coded games (N = 22)."
+
+coding_data |>
+  count(ens_completeness, name = "n") |>
+  mutate(
+    Percent = round(n / sum(n) * 100, 1),
+    `Cumulative %` = round(cumsum(Percent), 1),
+    Percent = paste0(Percent, "%"),
+    `Cumulative %` = paste0(`Cumulative %`, "%")
+  ) |>
+  rename(
+    "ENS Completeness" = ens_completeness,
+    "N" = n
+  ) |>
+  kable(align = c("l", "c", "c", "c")) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options = c("striped", "hold_position"),
+    full_width = FALSE,
+    font_size = 13
+  ) |>
+  row_spec(0, bold = TRUE, background = "#b71c1c", color = "white")
+```
+
+Table 2 addresses RQ1 directly. The dominant category is **Partial** representation (15 of 22 games, 68.2%) — games that present one or two of Lewontin's three ENS principles but not all three. Only 5 games (22.7%) presented the full set of principles required for ENS to actually occur. Two games (9.1%) — both academically developed information-presentation titles — presented none of the three principles in their game mechanics, despite their explicit framing as evolution education.
+
+---
+
+### Bar Chart: Distribution of ENS Completeness
+
+```{r}
+#| label: fig-var1-bar
+#| fig-cap: "Figure 1. Distribution of ENS Completeness across all coded games (N = 22). The Partial category dominates, while only one game in five contains all three Lewontin principles required for natural selection to occur."
+#| fig-width: 7
+#| fig-height: 4.5
+
+coding_data |>
+  count(ens_completeness) |>
+  mutate(
+    pct = n / sum(n),
+    ens_completeness = factor(ens_completeness,
+                              levels = c("None", "Partial", "Complete"))
+  ) |>
+  ggplot(aes(x = ens_completeness, y = pct, fill = ens_completeness)) +
+  geom_col(width = 0.65, show.legend = FALSE) +
+  geom_text(
+    aes(label = paste0(round(pct * 100, 1), "%")),
+    vjust = -0.4,
+    size = 3.8,
+    color = "#333333"
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    limits = c(0, 0.85),
+    expand = expansion(mult = c(0, 0.08))
+  ) +
+  scale_fill_manual(values = c(
+    "None"     = "#ef9a9a",
+    "Partial"  = "#e57373",
+    "Complete" = "#b71c1c"
+  )) +
+  labs(
+    title = "Distribution of ENS Completeness",
+    subtitle = "Source: 22 evolution-themed digital games | Leith, Ratan, & Wohn (2016)",
+    x = "ENS Completeness (None / Partial / Complete)",
+    y = "Proportion of Games"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", color = "#b71c1c"),
+    plot.subtitle = element_text(color = "#666666", size = 9),
+    axis.title = element_text(color = "#333333"),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+Figure 1 visualizes Table 2. Two patterns stand out. First, Partial representation is the modal category by a wide margin — most evolution-themed games depict some but not all of the principles required for natural selection to function as a closed system. Second, the Complete category is sparse: only 5 of 22 games (22.7%) clear the bar of representing all three Lewontin principles in their mechanics.
+
+---
+
+### Distribution by Individual Principle
+
+```{r}
+#| label: tbl-principle-freq
+#| tbl-cap: "Table 3. Presence of each Lewontin principle of natural selection across the 22 coded games."
+
+principle_summary <- coding_data |>
+  summarise(
+    `Phenotypic Variation` = sum(phenotypic_variation == "Yes"),
+    `Differential Fitness` = sum(differential_fitness == "Yes"),
+    `Fitness Heritability` = sum(fitness_heritability == "Yes")
+  ) |>
+  pivot_longer(everything(), names_to = "Principle", values_to = "Games (Yes)") |>
+  mutate(`% of N=22` = paste0(round(`Games (Yes)` / 22 * 100, 1), "%"))
+
+principle_summary |>
+  kable(align = c("l", "c", "c")) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options = c("striped", "hold_position"),
+    full_width = FALSE,
+    font_size = 13
+  ) |>
+  row_spec(0, bold = TRUE, background = "#b71c1c", color = "white")
+```
+
+Table 3 disaggregates ENS Completeness into the three principles. **Phenotypic variation** appears in 20 of 22 games (90.9%) — by far the most commonly depicted principle. **Differential fitness** and **fitness heritability** appear in only 6 (27.3%) and 8 (36.4%) games respectively. This pattern suggests that game designers reach naturally for visible diversity (different-looking organisms) but more rarely simulate the consequence-and-inheritance machinery that turns variation into actual evolution.
+
+---
+
+## Inferential Analysis
+
+### Chi-Square Test of Independence: ENS Completeness × Game Origin
+
+This Chi-Square test addresses RQ2: does the completeness of ENS representation differ between commercially distributed and academically developed games?
+
+```{r}
+#| label: tbl-crosstab
+#| tbl-cap: "Table 4. Cross-tabulation of ENS Completeness by Game Origin (N = 22)."
+
+cross_tab <- table(coding_data$ens_completeness, coding_data$game_origin)
+
+cross_tab |>
+  as.data.frame.matrix() |>
+  rownames_to_column(var = "ENS Completeness") |>
+  kable(align = "lcc") |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    latex_options = c("striped", "hold_position"),
+    full_width = FALSE,
+    font_size = 13
+  ) |>
+  add_header_above(
+    c(" " = 1, "Game Origin" = ncol(cross_tab))
+  ) |>
+  row_spec(0, bold = TRUE, background = "#b71c1c", color = "white")
+```
+
+Table 4 displays the cross-tabulation. The two **None** games are both academic; commercial games have at least one principle in every case. The **Complete** category is split — 3 commercial games (*Creatures*, *SimEarth*, *SimLife*) and 2 academic games (*Selection Game*, *Who Wants to Live a Million Years*) — and the **Partial** category is dominated by commercial games (11 of 15).
+
+```{r}
+#| label: chi-square-test
+#| include: false
+
+chi_result <- suppressWarnings(chisq.test(cross_tab))
+
+chi_x2  <- round(chi_result$statistic, 2)
+chi_df  <- chi_result$parameter
+chi_p   <- round(chi_result$p.value, 3)
+chi_sig <- ifelse(chi_result$p.value < .05, "statistically significant", "not statistically significant")
+min_expected <- round(min(chi_result$expected), 2)
+```
+
+**Chi-Square Result:**
+
+A Chi-Square test of independence was conducted to examine the relationship between ENS Completeness and Game Origin. The result was `r chi_sig`, χ²(`r chi_df`) = `r chi_x2`, *p* = `r chi_p`.
+
+```{r}
+#| label: fig-mosaic
+#| fig-cap: "Figure 2. Stacked-bar plot showing the relationship between Game Origin and ENS Completeness. Bars represent the proportional composition of each origin group; cell counts are small, particularly for the None and Complete categories, which limits the inferential strength of the Chi-Square test reported above."
+#| fig-width: 7
+#| fig-height: 5
+
+coding_data |>
+  count(game_origin, ens_completeness) |>
+  group_by(game_origin) |>
+  mutate(prop = n / sum(n)) |>
+  ggplot(aes(x = game_origin, y = prop, fill = ens_completeness)) +
+  geom_col(position = "fill", width = 0.7, color = "white", linewidth = 0.4) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c(
+    "None"     = "#ef9a9a",
+    "Partial"  = "#e57373",
+    "Complete" = "#b71c1c"
+  )) +
+  labs(
+    title = "ENS Completeness by Game Origin",
+    subtitle = paste0(
+      "Chi-Sq(", chi_df, ") = ", chi_x2, ", p = ", chi_p,
+      " | N = 22 | Source: Leith, Ratan, & Wohn (2016)"
+    ),
+    x = "Game Origin",
+    y = "Proportion",
+    fill = "ENS Completeness"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", color = "#b71c1c"),
+    plot.subtitle = element_text(color = "#666666", size = 9),
+    legend.position = "right"
+  )
+```
+
+Three observations on the Chi-Square result:
+
+1. **The test was not statistically significant at α = .05** (*p* = `r chi_p`). The data do not provide evidence of a relationship between game origin and ENS completeness. Both commercial and academic games appear roughly comparable in the proportion of titles that present all three Lewontin principles.
+
+2. **All academic games rated as "None" (n = 2) belong to a specific subtype** — quiz-based information-presentation titles (*Angry Aliens: Evolution* and *Life Preservers*) that teach evolution as content rather than simulating it as a process. The qualitative significance of this pattern is not captured by the inferential test alone.
+
+3. **The minimum expected cell count was `r min_expected`**, which falls below the conventional threshold of 5 required for the Chi-Square test of independence. Three of the six expected cell counts in this 3×2 table are below 5. This is a consequence of the small sample size (N = 22) and the rarity of the Complete and None categories. **The Chi-Square result should therefore be interpreted with substantial caution** — Fisher's Exact Test or a substantially larger sample would be required to test this relationship rigorously. The original published study used qualitative thematic analysis precisely because the available population of evolution-themed games was too small to support inferential statistics.
+
+---
+
+## Summary of Findings
+
+::: {.callout-note}
+## Key Findings at a Glance
+
+- **RQ1** (How complete is ENS representation in evolution-themed games?): The dominant category is Partial (15 of 22 games, 68.2%). Only 5 games (22.7%) present all three Lewontin principles. Two games (both academic, both information-presentation quiz titles) present none of the three principles in mechanics.
+
+- **RQ2** (Does completeness differ between commercial and academic games?): The Chi-Square test of independence was not statistically significant. However, expected cell counts below 5 in three of six cells limit the inferential strength of this test substantially. The data do not provide statistical evidence of a relationship; the small sample size precludes confident conclusion either way.
+:::

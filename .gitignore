@@ -1,0 +1,18 @@
+# R / RStudio
+.Rhistory
+.RData
+.Rproj.user/
+# Note: *.Rproj is intentionally NOT excluded — this is a teaching example,
+# students need the .Rproj file so File → Open Project works on first try.
+
+# Quarto build artifacts
+.quarto/
+_freeze/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+/.quarto/
+**/*.quarto_ipynb

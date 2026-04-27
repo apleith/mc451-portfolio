@@ -1,0 +1,23 @@
+---
+title: "References"
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     references.qmd — REFERENCES
+     
+     Quarto automatically renders your references.bib file here.
+     You do not need to type anything in this file.
+     
+     ✏️  WHAT TO DO:
+       1. Export your Zotero library (or add entries manually)
+          to the references.bib file in this project folder.
+       2. In your .qmd chapter files, cite using [@AuthorYear].
+       3. Only sources you actually cited will appear here —
+          Quarto filters automatically.
+       4. The APA style is applied via the apa.csl file included
+          in this project. Do not change the csl: field in _quarto.yml
+          unless you need a different citation style.
+     ═══════════════════════════════════════════════════════════════ -->
+
+::: {#refs}
+:::
