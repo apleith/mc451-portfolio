@@ -258,3 +258,7 @@ By **Friday, May 8, 2026 at 11:59 pm**, submit both:
 ------------------------------------------------------------------------
 
 *MC 451 — Research Methods in Mass Media \| Spring 2026 \| SIUE Department of Mass Communications*
+
+## License
+
+The template and example materials in this repository are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0); see `LICENSE`. The example draws on Leith, Ratan, and Wohn (2016), https://doi.org/10.1007/s10956-016-9620-x. That article is cited, not relicensed: the license covers this repository's own materials only.
